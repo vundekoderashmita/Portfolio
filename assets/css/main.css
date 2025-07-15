@@ -3485,11 +3485,14 @@ body {
   position: relative;
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
   overflow: hidden;
-}/* Sidebar container fixed at bottom-left */
+}
+
+
+/* Sidebar container fixed at bottom-right */
 .sidebar {
   position: fixed;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
   z-index: 1100;
 }
 
@@ -3614,19 +3617,16 @@ h2[id] {
 .modal-slide.show {
   display: block;
 }
-
+/* Sidebar at bottom-right */
 .sidebar {
   position: fixed;
   bottom: 20px;
-  left: 20px;
-  z-index: 1000;
+  right: 20px;
+  z-index: 1100;
+  width: auto;               /* ⬅️ prevent it from stretching */
 }
 
-.hover-area {
-  position: relative;
-  padding: 10px; /* Makes hover area larger */
-}
-
+/* Hamburger icon */
 .hamburger {
   background-color: #333;
   color: #fff;
@@ -3637,13 +3637,13 @@ h2[id] {
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-/* Sidebar menu */
+/* Sidebar menu opens above the hamburger, aligned right */
 .sidebar-menu {
   display: flex;
   flex-direction: column;
   position: absolute;
   bottom: 60px;
-  left: 0;
+  right: 0;                             /* Align to right edge */
   width: 220px;
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
@@ -3656,8 +3656,8 @@ h2[id] {
   transition: all 0.3s ease;
 }
 
-/* Show on hover over entire hover-area (not just hamburger) */
-.hover-area:hover .sidebar-menu {
+/* Show menu on hover */
+.sidebar:hover .sidebar-menu {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
