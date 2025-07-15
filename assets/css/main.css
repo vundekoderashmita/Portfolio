@@ -3315,50 +3315,28 @@ body {
   opacity: 0.8;
 }
 
-
 /* Wrapper around the icon */
 .resume-wrapper {
   position: relative;
   display: inline-block;
 }
 
-/* The hidden dropdown */
+/* Resume dropdown opens upward */
 .resume-dropdown {
   display: none;
   position: absolute;
-  top: 2.5rem;
+  bottom: 2.5rem; /* ⬆️ opens upward */
   left: 0;
   background-color: var(--card-bg);
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0.5em;
   border-radius: 0.5em;
   z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  white-space: nowrap;
-}
-
-/* Show on hover */
-.resume-wrapper:hover .resume-dropdown {
-  display: block;
-}
-
-
-/* Dropdown container */
-.resume-dropdown {
-  display: none;
-  position: absolute;
-  top: 2.5rem;
-  left: 0;
-  background-color: #f2f2f2;  /* Light grey background for visibility */
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0.5em 0.5em;
-  border-radius: 0.5em;
-  z-index: 1000;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   white-space: nowrap;
 }
 
-/* Show on hover */
+/* Show dropdown on hover */
 .resume-wrapper:hover .resume-dropdown {
   display: block;
 }
@@ -3368,22 +3346,22 @@ body {
   display: block;
   padding: 0.5em 1em;
   font-size: 0.95em;
-  color: #000000; /* FORCE dark text for visibility */
+  color: #000000;
   text-decoration: none;
   font-weight: 600;
   transition: background 0.2s ease;
 }
 
-/* On hover */
+/* Hover effect */
 .resume-dropdown a:hover {
   background-color: #e0e0e0;
   border-radius: 0.3em;
 }
 
-/* --- Resume dropdown ---------------------------------------------- */
-#footer .resume-dropdown a{
-  color:#000 !important;      /* solid black text */
-  border-bottom:none;         /* no dotted underline */
+/* Footer-specific tweak */
+#footer .resume-dropdown a {
+  color: #000 !important;
+  border-bottom: none;
 }
 
 
@@ -3533,44 +3511,6 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Sidebar menu */
-.sidebar-menu {
-  position: absolute;
-  bottom: 60px;
-  left: 0;
-  width: 220px;
-  flex-direction: column;
-  padding: 16px;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.5); /* 50% transparent */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(8px); /* Optional: glassy effect */
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  display: flex;
-}
-
-/* Sidebar menu links */
-.sidebar-menu a {
-  color: #333;
-  text-decoration: none;
-  margin: 8px 0;
-  font-weight: 600;
-}
-
-.sidebar-menu a:hover {
-  color: #007bff;
-}
-
-/* Show menu on hover */
-.sidebar:hover .sidebar-menu,
-.sidebar .hover-area:hover .sidebar-menu {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-
 body {
   padding-top: 60px; /* adjust if navbar is taller */
 }
@@ -3675,16 +3615,63 @@ h2[id] {
   display: block;
 }
 
+.sidebar {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
 
+.hover-area {
+  position: relative;
+  padding: 10px; /* Makes hover area larger */
+}
+
+.hamburger {
+  background-color: #333;
+  color: #fff;
+  padding: 12px 16px;
+  font-size: 24px;
+  border-radius: 8px;
+  cursor: default;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Sidebar menu */
 .sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  width: 220px;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
 }
 
-.sidebar:hover .sidebar-menu {
+/* Show on hover over entire hover-area (not just hamburger) */
+.hover-area:hover .sidebar-menu {
   opacity: 1;
   pointer-events: auto;
+  transform: translateY(0);
 }
 
+/* Links */
+.sidebar-menu a {
+  color: #333;
+  text-decoration: none;
+  margin: 8px 0;
+  font-weight: 600;
+}
+
+.sidebar-menu a:hover {
+  color: #007bff;
+}
 
