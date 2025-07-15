@@ -115,3 +115,44 @@
 			});
 
 })(jQuery);
+document.addEventListener("DOMContentLoaded", function () {
+  // Modal logic
+  window.openModal = function (modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.style.display = 'block';
+
+    const slides = modal.querySelectorAll('.modal-slide');
+    slides.forEach(slide => slide.classList.remove('show'));
+    if (slides[0]) slides[0].classList.add('show');
+  };
+
+  window.closeModal = function (modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.style.display = 'none';
+  };
+
+  window.showSlide = function (slideId) {
+    const allSlides = document.querySelectorAll('.modal-slide');
+    allSlides.forEach(slide => slide.classList.remove('show'));
+    const targetSlide = document.getElementById(slideId);
+    if (targetSlide) targetSlide.classList.add('show');
+  };
+
+  // Sidebar toggle
+  window.toggleSidebar = function () {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('open');
+  };
+
+  // Auto-close sidebar on link click
+  document.querySelectorAll('.sidebar-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar) sidebar.classList.remove('open');
+    });
+  });
+});
+
+

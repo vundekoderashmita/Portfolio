@@ -2141,10 +2141,18 @@ input, select, textarea {
 				display: none;
 			}
 
-			.image.avatar img {
-				border-radius: 100%;
-				width: 100%;
-			}
+			.image.avatar {
+  width: 300px !important;               /* Adjust width of the image block */
+  margin: 0 auto;
+}
+
+.image.avatar img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  object-fit: cover;
+}
+
 
 /* List */
 
@@ -3386,3 +3394,297 @@ body {
 .certifications-section hr {
   margin: 3rem 0;
 }
+.custom-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.modal-content {
+  background: white;
+  width: 90%;
+  max-width: 700px;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+  max-height: 80vh;
+  overflow: hidden;
+}
+
+.modal-scroll {
+  overflow-y: auto;
+  max-height: 50vh;
+  padding-right: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.next-btn, .prev-btn {
+  background: #333;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  float: right;
+  border-radius: 6px;
+}
+
+.modal-slide {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-slide.show {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* Modal Slide Styling */
+.modal-slide h2 {
+  font-size: 1.6em; /* Bigger title */
+  margin-bottom: 0.5em;
+}
+
+.modal-scroll p {
+  font-weight: bold;
+  color: #555;
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+  font-size: 1.1em;
+}
+
+.modal-scroll ul {
+  margin-top: 0.2em;
+  margin-bottom: 0.8em;
+  padding-left: 1.2em;
+}
+
+.modal-scroll li {
+  margin-bottom: 0.3em; /* Tighter spacing between list items */
+  font-size: 1em;
+  line-height: 1.4em;
+}
+
+
+.modal-slide {
+  display: none;
+}
+
+.modal-slide.show {
+  display: block;
+}
+
+.custom-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7); /* semi-transparent background */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 800px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  overflow: hidden;
+}/* Sidebar container fixed at bottom-left */
+.sidebar {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1100;
+}
+
+/* Expanded hover area */
+.hover-area {
+  position: relative;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+/* Hamburger icon */
+.hamburger {
+  background-color: #333;
+  color: #fff;
+  padding: 12px 16px;
+  font-size: 24px;
+  border-radius: 8px;
+  cursor: default;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidebar menu */
+.sidebar-menu {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  width: 220px;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.5); /* 50% transparent */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px); /* Optional: glassy effect */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+}
+
+/* Sidebar menu links */
+.sidebar-menu a {
+  color: #333;
+  text-decoration: none;
+  margin: 8px 0;
+  font-weight: 600;
+}
+
+.sidebar-menu a:hover {
+  color: #007bff;
+}
+
+/* Show menu on hover */
+.sidebar:hover .sidebar-menu,
+.sidebar .hover-area:hover .sidebar-menu {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+body {
+  padding-top: 60px; /* adjust if navbar is taller */
+}
+
+[ Work Experience | Publications | Projects | Co-curricular | Certifications | Skills & Languages ]
+
+h2[id] {
+  scroll-margin-top: 80px; /* Match your navbar height */
+}
+
+
+
+/* Center the entire header content */
+#header {
+  height: 100vh; /* full screen */
+  display: flex;
+  align-items: center; /* vertical centering */
+  justify-content: center; /* horizontal centering */
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Inner content layout */
+#header .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Profile image */
+.image.avatar {
+  width: 300px;
+  margin-bottom: 1rem;
+}
+
+.image.avatar img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Text styling */
+#header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+#header h4 {
+  font-size: 1.2rem;
+  max-width: 500px;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+
+
+/* Basic Modal Wrapper */
+.custom-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Modal Content Box */
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 28px;
+  color: #444;
+  cursor: pointer;
+}
+
+/* Slide visibility logic */
+.modal-slide {
+  display: none;
+}
+
+.modal-slide.show {
+  display: block;
+}
+
+
+.sidebar-menu {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar:hover .sidebar-menu {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
