@@ -3675,3 +3675,36 @@ h2[id] {
   color: #007bff;
 }
 
+
+/* 🌙 Modal Styling in Dark Mode */
+body.dark-mode .custom-modal {
+  background-color: rgba(20, 20, 20, 0.75) !important;  /* dark background */
+  color: #f5f5f5 !important;
+}
+
+body.dark-mode .modal-content {
+  background-color: rgba(20, 20, 20, 0.95) !important; /* or use 1 for solid */
+  border-radius: 12px;
+}
+
+
+body.dark-mode .modal-slide h2,
+body.dark-mode .modal-slide p,
+body.dark-mode .modal-slide ul,
+body.dark-mode .modal-slide li,
+body.dark-mode .modal-slide strong {
+  color: #f5f5f5 !important;
+}
+
+body.dark-mode .modal-scroll ul {
+  color: #f5f5f5 !important;
+}
+
+body.dark-mode .modal-slide button {
+  background-color: #444 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .close-btn {
+  color: #f5f5f5 !important;
+}
